@@ -1,4 +1,4 @@
-# 32Bit-ALU_Synthesis
+# EX 5 32Bit-ALU_Synthesis
 
 ## Aim:
 
@@ -34,6 +34,23 @@ used.
 • The tool used for Synthesis is “Genus”. Hence, type “genus -gui” to open the tool.
 
 • Genus Script file with .tcl file Extension commands are executed one by one to synthesize the netlist.
+
+read_libs /cadence/install/FOUNDRY-01/digital/90nm/dig/lib/slow.lib
+read_hdl alu_32bit.v
+elaborate
+syn_generic
+report_area
+syn_map
+report_area
+syn_opt
+report_area
+report_area > alu_32bit_area.txt
+report_power > alu_32bit_power.txt
+report_area > alu_32bit_cell.txt
+report_gates > alu_32bit_gates.txt
+write_hdl > alu_32bit_netlist.v
+gui_show
+
 
 #### Synthesis RTL Schematic :
 ![WhatsApp Image 2024-11-18 at 10 25 23_77831f1d](https://github.com/user-attachments/assets/1fe30648-4f76-4de8-b60a-9f781a39913d)
